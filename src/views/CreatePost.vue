@@ -16,9 +16,13 @@
   })
 
   const handleSubmit = async () => {
-    const response = await axiosRequest.post('/posts', post)
+    try {
+      const response = await axiosRequest.post('/posts', post)
 
-    if (response.status === 201) router.push('/')
+      if (response.status === 201) router.push('/')
+    } catch (e) {
+      throw e
+    }
   }
 </script>
 

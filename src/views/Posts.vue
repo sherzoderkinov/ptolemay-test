@@ -20,15 +20,25 @@
   }
 
   const handleDelete = async (_, row) => {
-    const response = await axiosRequest.delete(`/posts/${row.id}`)
+    try {
+      const response = await axiosRequest.delete(`/posts/${row.id}`)
 
-    const { data } = await axiosRequest.get('/posts')
-    posts.value = data
+      if (response.status === 200) {
+        const { data } = await axiosRequest.get('/posts')
+        posts.value = data
+      }
+    } catch (e) {
+      throw e
+    }
   }
 
   onMounted(async () => {
-    const response = await axiosRequest.get('/posts')
-    posts.value = response.data
+    try {
+      const response = await axiosRequest.get('/posts')
+      posts.value = response.data
+    } catch (e) {
+      throw e
+    }
   })
 </script>
 

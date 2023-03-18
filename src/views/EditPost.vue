@@ -17,17 +17,25 @@
   })
 
   const handleSubmit = async () => {
-    const response = await axiosRequest.put(`/posts/${route.params.id}`, post)
+    try {
+      const response = await axiosRequest.put(`/posts/${route.params.id}`, post)
 
-    if (response.status === 200) router.push('/')
+      if (response.status === 200) router.push('/')
+    } catch (e) {
+      throw e
+    }
   }
 
   onMounted(async () => {
-    const { data } = await axiosRequest.get(`/posts/${route.params.id}`)
+    try {
+      const { data } = await axiosRequest.get(`/posts/${route.params.id}`)
 
-    post.author = data.author
-    post.title = data.title
-    post.description = data.description
+      post.author = data.author
+      post.title = data.title
+      post.description = data.description
+    } catch (e) {
+      throw e
+    }
   })
 </script>
 

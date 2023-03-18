@@ -16,11 +16,15 @@
   })
 
   onMounted(async () => {
-    const { data } = await axiosRequest.get(`/posts/${route.params.id}`)
+    try {
+      const { data } = await axiosRequest.get(`/posts/${route.params.id}`)
 
-    post.author = data.author
-    post.title = data.title
-    post.description = data.description
+      post.author = data.author
+      post.title = data.title
+      post.description = data.description
+    } catch (e) {
+      throw e
+    }
   })
 </script>
 
