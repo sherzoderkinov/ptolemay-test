@@ -1,0 +1,32 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.posts {
+  width: 1000px;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.buttons a {
+  margin-right: 15px;
+}
